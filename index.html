@@ -9,10 +9,14 @@
 <body>
 
   <div class="card">
-    <h1>Fale Conosco</h1>
+    <h1>Suas fotos saem assim ?</h1>
     <p class="subtitle">Preencha o formulário abaixo e entraremos em contato.</p>
 
     <form id="form" novalidate>
+        <div class="slideshow-container">
+            <img src="fotos/foto1.png" alt="Foto 1" class="slide active">
+            <img src="fotos/foto2.png" alt="Foto 2" class="slide">
+        </div>
 
       <div class="form-group">
         <label for="nome">Nome completo</label>
@@ -33,13 +37,11 @@
       </div>
 
       <div class="form-group">
-        <label for="assunto">Assunto</label>
+        <label for="assunto">Voçe está satisfeito com o resultado ?</label>
         <select id="assunto">
-          <option value="">Selecione um assunto</option>
-          <option value="duvida">Dúvida</option>
-          <option value="sugestao">Sugestão</option>
-          <option value="parceria">Parceria</option>
-          <option value="outro">Outro</option>
+          <option value="">Selecione uma opção</option>
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
         </select>
         <span class="field-error" id="assuntoErro"></span>
       </div>
