@@ -74,8 +74,8 @@ function marcarValido(campo) {
 function validarCampos() {
   let valido = true;
 
-  const nome     = document.getElementById('nome');
-  const email    = document.getElementById('email');
+  const nome = document.getElementById('nome');
+  const email = document.getElementById('email');
   const telefone = document.getElementById('telefone');
   const assunto  = document.getElementById('assunto');
   const mensagem = document.getElementById('mensagem');
