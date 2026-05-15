@@ -3,30 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechForge | Formulário de Contato</title>
+  <title>Formulário de Contato</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- HEADER TECHFORGE SEPARADO -->
-  <header class="tech-header">
-    <div class="logo">TECHFORGE</div>
-    <p class="tagline">Tecnologia aplicada à experiência da sua câmera</p>
-  </header>
-
   <div class="card">
-    <h1>Suas fotos saem assim ?</h1>
-    <p class="subtitle">
-      Somos a <strong>TechForge</strong>. Queremos entender sua experiência com a câmera do seu aparelho.
-    </p>
+    <h1>Suas fotos saem <span>assim</span>?</h1>
+    <p class="subtitle">Preencha o formulário abaixo e entraremos em contato.</p>
+
+    <div class="slideshow-container">
+      <img src="fotos/foto1.png" alt="Foto 1" class="slide active">
+      <img src="fotos/foto2.png" alt="Foto 2" class="slide">
+    </div>
+
+    <div class="divisor">Fale conosco</div>
 
     <form id="form" novalidate>
-
-      <!-- SLIDESHOW -->
-      <div class="slideshow-container">
-        <img src="fotos/foto1.png" alt="Foto 1" class="slide active">
-        <img src="fotos/foto2.png" alt="Foto 2" class="slide">
-      </div>
 
       <div class="form-group">
         <label for="nome">Nome completo</label>
@@ -47,7 +40,7 @@
       </div>
 
       <div class="form-group">
-        <label for="assunto">Você está satisfeito com o resultado ?</label>
+        <label for="assunto">Você está satisfeito com o resultado da sua câmera?</label>
         <select id="assunto">
           <option value="">Selecione uma opção</option>
           <option value="sim">Sim</option>
@@ -61,6 +54,8 @@
         <textarea id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..."></textarea>
         <span class="field-error" id="mensagemErro"></span>
       </div>
+
+      
 
       <button type="submit" class="btn-enviar">ENVIAR</button>
 
