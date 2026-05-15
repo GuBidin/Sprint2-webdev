@@ -176,3 +176,58 @@ form.addEventListener('submit', function(evento) {
 });
 
 
+//LIMPEZA DE ERROS
+const campos = ['nome', 'email', 'telefone', 'assunto', 'mensagem'];
+
+campos.forEach(function(id) {
+  const campo = document.getElementById(id);
+
+  if (id === 'assunto') {
+    campo.addEventListener('change', function() {
+      marcarValido(campo);
+      limparErro(id + 'Erro');
+    });
+  } else {
+    campo.addEventListener('input', function() {
+      marcarValido(campo);
+      limparErro(id + 'Erro');
+    });
+  }
+});
+
+
+//BOTÃO LIMPAR USANDO DOM
+const btnReset = document.createElement('button');
+btnReset.type = 'button';
+btnReset.textContent = 'Limpar formulário';
+btnReset.style.cssText = `
+  display: block;
+  margin: 12px auto 0;
+  background: transparent;
+  border: none;
+  color: #718096;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+`;
+
+btnReset.addEventListener('click', function() {
+  const confirmar = confirm('Deseja limpar todos os campos?');
+
+  if (confirmar) {
+    form.reset();
+
+    campos.forEach(function(id) {
+      const campo = document.getElementById(id);
+      marcarValido(campo);
+      limparErro(id + 'Erro');
+    });
+
+    document.getElementById('sucesso').hidden = true;
+  }
+});
+
+form.appendChild(btnReset);
+
+
+
