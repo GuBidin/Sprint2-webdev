@@ -40,4 +40,139 @@ function formatarTelefone(valor) {
   return '(' + nums.slice(0, 2) + ') ' + nums.slice(2, 7) + '-' + nums.slice(7, 11);
 }
 
+//MÁSCARA DE TELEFONE 
+const campoTelefone = document.getElementById('telefone');
+
+campoTelefone.addEventListener('input', function() {
+  this.value = formatarTelefone(this.value);
+});
+
+
+//FUNÇÕES DE ERRO 
+function mostrarErro(id, msg) {
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.classList.add('visivel');
+}
+
+function limparErro(id) {
+  const el = document.getElementById(id);
+  el.textContent = '';
+  el.classList.remove('visivel');
+}
+
+function marcarInvalido(campo) {
+  campo.classList.add('invalido');
+}
+
+function marcarValido(campo) {
+  campo.classList.remove('invalido');
+}
+
+
+//VALIDAÇÃO 
+function validarCampos() {
+  let valido = true;
+
+  const nome     = document.getElementById('nome');
+  const email    = document.getElementById('email');
+  const telefone = document.getElementById('telefone');
+  const assunto  = document.getElementById('assunto');
+  const mensagem = document.getElementById('mensagem');
+
+  if (limparTexto(nome.value).length < 3) {
+    mostrarErro('nomeErro', 'Por favor, informe seu nome completo.');
+    marcarInvalido(nome);
+    valido = false;
+  } else {
+    limparErro('nomeErro');
+    marcarValido(nome);
+  }
+
+  if (!validarEmail(email.value)) {
+    mostrarErro('emailErro', 'Informe um e-mail válido.');
+    marcarInvalido(email);
+    valido = false;
+  } else {
+    limparErro('emailErro');
+    marcarValido(email);
+  }
+
+  const telLimpo = telefone.value.replace(/\D/g, '');
+  if (telLimpo.length < 10) {
+    mostrarErro('telefoneErro', 'Informe um telefone válido com DDD.');
+    marcarInvalido(telefone);
+    valido = false;
+  } else {
+    limparErro('telefoneErro');
+    marcarValido(telefone);
+  }
+
+  if (assunto.value === '') {
+    mostrarErro('assuntoErro', 'Selecione uma opção.');
+    marcarInvalido(assunto);
+    valido = false;
+  } else {
+    limparErro('assuntoErro');
+    marcarValido(assunto);
+  }
+
+  if (limparTexto(mensagem.value).length < 10) {
+    mostrarErro('mensagemErro', 'Escreva uma mensagem com pelo menos 10 caracteres.');
+    marcarInvalido(mensagem);
+    valido = false;
+  } else {
+    limparErro('mensagemErro');
+    marcarValido(mensagem);
+  }
+
+  return valido;
+}
+
+
+//SUBMIT
+const form = document.getElementById('form');
+
+form.addEventListener('submit', function(evento) {
+  evento.preventDefault();
+
+  const valido = validarCampos();
+
+  if (!valido) {
+    alert('⚠️ Por favor, corrija os campos destacados antes de enviar.');
+    return;
+  }
+
+  const nomeVal = limparTexto(document.getElementById('nome').value);
+  const assunto = document.getElementById('assunto');
+
+  const confirmar = confirm('Olá, ' + nomeVal + '!\n\nDeseja confirmar o envio do formulário?');
+
+  if (!confirmar) return;
+
+  const btn = document.querySelector('.btn-enviar');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  setTimeout(function() {
+    const sucesso = document.getElementById('sucesso');
+    sucesso.hidden = false;
+
+    if (assunto.value === 'nao') {
+      alert('Ficamos tristes que ' + nomeVal + ' não esteja satisfeito(a). Vamos resolver isso! 📸');
+    } else {
+      alert('Obrigado, ' + nomeVal + '! Que bom que você gostou do resultado! 🎉');
+    }
+
+    form.reset();
+    btn.disabled = false;
+    btn.textContent = 'ENVIAR';
+
+    setTimeout(function() {
+      sucesso.hidden = true;
+    }, 6000);
+
+  }, 1200);
+});
+
 
