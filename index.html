@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário de Contato</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="card">
+    <h1>Fale Conosco</h1>
+    <p class="subtitle">Preencha o formulário abaixo e entraremos em contato.</p>
+
+    <form id="form" novalidate>
+
+      <div class="form-group">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" placeholder="Seu nome" />
+        <span class="field-error" id="nomeErro"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="seu@email.com" />
+        <span class="field-error" id="emailErro"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" placeholder="(11) 99999-9999" maxlength="15" />
+        <span class="field-error" id="telefoneErro"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="assunto">Assunto</label>
+        <select id="assunto">
+          <option value="">Selecione um assunto</option>
+          <option value="duvida">Dúvida</option>
+          <option value="sugestao">Sugestão</option>
+          <option value="parceria">Parceria</option>
+          <option value="outro">Outro</option>
+        </select>
+        <span class="field-error" id="assuntoErro"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..."></textarea>
+        <span class="field-error" id="mensagemErro"></span>
+      </div>
+
+      <button type="submit" class="btn-enviar">ENVIAR</button>
+
+      <div id="sucesso" class="sucesso" hidden>
+        ✅ Mensagem enviada com sucesso! Em breve entraremos em contato.
+      </div>
+
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
