@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg,#0a192f,#0f3057);
+  min-height:100vh;
+}
+
+/* HEADER */
+.tech-header{
+  text-align:center;
+  padding:40px 20px 10px;
+  color:#fff;
+}
+
+.logo{
+  font-size:48px;
+  letter-spacing:6px;
+  color:#00b3ff;
+  text-shadow:0 0 20px #00b3ff;
+}
+
+.tagline{
+  margin-top:10px;
+  font-size:14px;
+  color:#b0c4de;
+}
+
+/* CARD */
+.card{
+  width:480px;
+  max-width:95%;
+  margin:30px auto 60px;
+  background:#ffffff;
+  border-radius:14px;
+  padding:30px;
+  box-shadow:0 0 40px rgba(0,179,255,0.25);
+}
+
+h1{
+  text-align:center;
+  color:#0d47a1;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:14px;
+  margin-bottom:20px;
+  color:#333;
+}
+
+/* SLIDESHOW SEM CORTAR */
+.slideshow-container{
+  width:100%;
+  height:220px;
+  border:3px solid #00b3ff;
+  border-radius:10px;
+  margin-bottom:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#eaf6ff;
+  overflow:hidden;
+}
+
+.slide{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  display:none;
+}
+
+.slide.active{
+  display:block;
+}
+
+/* FORM */
+.form-group{
+  margin-bottom:18px;
+  display:flex;
+  flex-direction:column;
+}
+
+label{
+  margin-bottom:6px;
+  font-weight:600;
+  color:#0d47a1;
+}
+
+input,
+select,
+textarea{
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #90caf9;
+  font-size:14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  outline:none;
+  border-color:#00b3ff;
+  box-shadow:0 0 8px #00b3ff;
+}
+
+.field-error{
+  color:#d32f2f;
+  font-size:12px;
+  margin-top:4px;
+  height:14px;
+}
+
+/* BOTÃO */
+.btn-enviar{
+  margin-top:10px;
+  padding:12px;
+  border:none;
+  border-radius:6px;
+  background:#00b3ff;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn-enviar:hover{
+  background:#0288d1;
+  transform:scale(1.03);
+}
+
+/* SUCESSO */
+.sucesso{
+  margin-top:15px;
+  background:#e3f2fd;
+  padding:10px;
+  border-radius:6px;
+  text-align:center;
+  color:#0d47a1;
+}
